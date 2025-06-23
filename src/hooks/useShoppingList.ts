@@ -1,5 +1,5 @@
 // Custom Hook für Einkaufslisten-Management mit React Query für robuste Daten-Synchronisierung
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import type { ShoppingItem, AddItemFormData, UseShoppingListReturn } from '../types';
@@ -201,9 +201,16 @@ export const useShoppingList = (): UseShoppingListReturn => {
     }
   }, [error]);
 
+  // useMemo stellt sicher, dass wir über alle Re-Renders hinweg dieselbe Channel-Instanz verwenden.
+  // Dies verhindert den "multiple subscriptions"-Fehler, insbesondere im Strict Mode von React.
+  // Ein zufälliger Name hilft bei Hot-Reloading im Entwicklungsmodus.
+  const channel = useMemo(() => 
+    supabase.channel(`realtime:shopping-list:${Math.random()}`),
+    [] // Leeres Array = nur einmal ausführen
+  );
+
   useEffect(() => {
-    const channel = supabase
-      .channel('shopping_list_items_public_realtime')
+    channel
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'shopping_list_items', filter: `list_id=eq.${PUBLIC_LIST_ID}` },
@@ -211,12 +218,18 @@ export const useShoppingList = (): UseShoppingListReturn => {
           queryClient.invalidateQueries({ queryKey: shoppingListQueryKey });
         }
       )
-      .subscribe();
+      .subscribe((status, err) => {
+        if (err) {
+          console.error('Supabase subscription error:', err);
+          toast.error('Realtime-Verbindung fehlgeschlagen.');
+        }
+      });
 
+    // Die Cleanup-Funktion entfernt nun den Channel, um alle Listener sicher zu entfernen.
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [queryClient]);
+  }, [queryClient, channel]); // channel ist stabil, wird aber als Abhängigkeit aufgeführt.
 
   const addItemMutation = useMutation({
     mutationFn: addShoppingItem,
