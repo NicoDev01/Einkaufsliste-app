@@ -1,0 +1,269 @@
+{
+  "users": [
+    {
+      "id": "jana-uuid",
+      "name": "Jana",
+      "email": "jana@example.com",
+      "avatar": "/images/jana-avatar.jpg"
+    },
+    {
+      "id": "nico-uuid", 
+      "name": "Nico",
+      "email": "nico@example.com",
+      "avatar": "/images/nico-avatar.jpg"
+    }
+  ],
+  "shoppingLists": [
+    {
+      "id": "main-list-uuid",
+      "name": "Haupteinkaufsliste",
+      "description": "Gemeinsame Einkaufsliste von Jana und Nico",
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-21T10:00:00Z"
+    },
+    {
+      "id": "weekly-list-uuid",
+      "name": "Wocheneinkauf",
+      "description": "Großeinkauf für die Woche",
+      "createdBy": "nico-uuid",
+      "createdAt": "2025-06-20T15:30:00Z"
+    },
+    {
+      "id": "drugstore-list-uuid",
+      "name": "Drogerie",
+      "description": "Hygiene und Haushalt",
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-19T12:15:00Z"
+    }
+  ],
+  "shoppingItems": [
+    {
+      "id": "item-1",
+      "listId": "main-list-uuid",
+      "name": "Bio-Milch",
+      "quantity": "1 Liter",
+      "notes": "Die mit 3,5% Fett",
+      "category": "Milchprodukte",
+      "purchased": false,
+      "assignedTo": "nico-uuid",
+      "store": "Edeka",
+      "highlighted": true,
+      "sortOrder": 1,
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-22T08:30:00Z"
+    },
+    {
+      "id": "item-2",
+      "listId": "main-list-uuid",
+      "name": "Vollkornbrot",
+      "quantity": "1 Laib",
+      "notes": "Beim Bäcker holen",
+      "category": "Brot & Backwaren",
+      "purchased": false,
+      "assignedTo": "jana-uuid",
+      "store": "Edeka",
+      "highlighted": false,
+      "sortOrder": 2,
+      "createdBy": "nico-uuid",
+      "createdAt": "2025-06-22T09:15:00Z"
+    },
+    {
+      "id": "item-3",
+      "listId": "main-list-uuid",
+      "name": "Bananen",
+      "quantity": "1kg",
+      "notes": "Nicht zu reife",
+      "category": "Obst & Gemüse",
+      "purchased": true,
+      "assignedTo": "jana-uuid",
+      "store": "Edeka",
+      "highlighted": false,
+      "sortOrder": 3,
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-21T14:20:00Z"
+    },
+    {
+      "id": "item-4",
+      "listId": "main-list-uuid",
+      "name": "Hähnchenbrust",
+      "quantity": "500g",
+      "notes": "Bio wenn möglich",
+      "category": "Fleisch & Fisch",
+      "purchased": false,
+      "assignedTo": "nico-uuid",
+      "store": "Edeka",
+      "highlighted": false,
+      "sortOrder": 4,
+      "createdBy": "nico-uuid",
+      "createdAt": "2025-06-22T07:45:00Z"
+    },
+    {
+      "id": "item-5",
+      "listId": "main-list-uuid",
+      "name": "Tomaten",
+      "quantity": "500g",
+      "notes": "Für den Salat",
+      "category": "Obst & Gemüse",
+      "purchased": false,
+      "assignedTo": "jana-uuid",
+      "store": "Edeka",
+      "highlighted": false,
+      "sortOrder": 5,
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-22T08:00:00Z"
+    },
+    {
+      "id": "item-6",
+      "listId": "drugstore-list-uuid",
+      "name": "Zahnpasta",
+      "quantity": "1 Tube",
+      "notes": "Sensodyne wenn möglich",
+      "category": "Hygiene & Kosmetik",
+      "purchased": false,
+      "assignedTo": "jana-uuid",
+      "store": "DM",
+      "highlighted": false,
+      "sortOrder": 1,
+      "createdBy": "jana-uuid",
+      "createdAt": "2025-06-21T16:30:00Z"
+    },
+    {
+      "id": "item-7",
+      "listId": "drugstore-list-uuid",
+      "name": "Toilettenpapier",
+      "quantity": "1 Packung",
+      "notes": "3-lagig",
+      "category": "Haushalt & Reinigung",
+      "purchased": false,
+      "assignedTo": "nico-uuid",
+      "store": "DM",
+      "highlighted": true,
+      "sortOrder": 2,
+      "createdBy": "nico-uuid",
+      "createdAt": "2025-06-21T17:00:00Z"
+    }
+  ],
+  "stores": [
+    {
+      "id": "edeka",
+      "name": "Edeka",
+      "type": "Supermarkt",
+      "color": "#FFA500",
+      "icon": "🏪"
+    },
+    {
+      "id": "lidl",
+      "name": "Lidl",
+      "type": "Discounter",
+      "color": "#0050AA",
+      "icon": "🛒"
+    },
+    {
+      "id": "aldi",
+      "name": "Aldi",
+      "type": "Discounter", 
+      "color": "#FF6B35",
+      "icon": "🛒"
+    },
+    {
+      "id": "penny",
+      "name": "Penny",
+      "type": "Discounter",
+      "color": "#E31837",
+      "icon": "🛒"
+    },
+    {
+      "id": "rossmann",
+      "name": "Rossmann",
+      "type": "Drogerie",
+      "color": "#D40511",
+      "icon": "💊"
+    },
+    {
+      "id": "dm",
+      "name": "DM",
+      "type": "Drogerie",
+      "color": "#00A3E0",
+      "icon": "💊"
+    }
+  ],
+  "categories": [
+    {
+      "id": "fruits-vegetables",
+      "name": "Obst & Gemüse",
+      "icon": "🥕",
+      "color": "#10B981",
+      "order": 1
+    },
+    {
+      "id": "dairy",
+      "name": "Milchprodukte",
+      "icon": "🥛",
+      "color": "#FBBF24",
+      "order": 2
+    },
+    {
+      "id": "meat-fish",
+      "name": "Fleisch & Fisch",
+      "icon": "🍖",
+      "color": "#EF4444",
+      "order": 3
+    },
+    {
+      "id": "bread-bakery",
+      "name": "Brot & Backwaren",
+      "icon": "🍞",
+      "color": "#92400E",
+      "order": 4
+    },
+    {
+      "id": "frozen",
+      "name": "Tiefkühlprodukte",
+      "icon": "❄️",
+      "color": "#06B6D4",
+      "order": 5
+    },
+    {
+      "id": "canned",
+      "name": "Konserven",
+      "icon": "🥫",
+      "color": "#6B7280",
+      "order": 6
+    },
+    {
+      "id": "beverages",
+      "name": "Getränke",
+      "icon": "🥤",
+      "color": "#3B82F6",
+      "order": 7
+    },
+    {
+      "id": "sweets-snacks",
+      "name": "Süßwaren & Snacks",
+      "icon": "🍫",
+      "color": "#F59E0B",
+      "order": 8
+    },
+    {
+      "id": "hygiene-cosmetics",
+      "name": "Hygiene & Kosmetik",
+      "icon": "🧴",
+      "color": "#8B5CF6",
+      "order": 9
+    },
+    {
+      "id": "household-cleaning",
+      "name": "Haushalt & Reinigung",
+      "icon": "🧽",
+      "color": "#059669",
+      "order": 10
+    },
+    {
+      "id": "other",
+      "name": "Sonstiges",
+      "icon": "📦",
+      "color": "#64748B",
+      "order": 11
+    }
+  ]
+}
