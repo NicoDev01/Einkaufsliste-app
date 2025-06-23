@@ -94,8 +94,8 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ filters }) => {
   }, [items]);
 
   // Event Handlers
-    const handleToggleCompleted = async (itemId: string, currentState: boolean) => {
-    await toggleCompleted(itemId, currentState);
+    const handleToggleCompleted = async (itemId: string) => {
+    await toggleCompleted(itemId);
   };
 
   const handleDeleteItem = async (itemId: string) => {
@@ -127,7 +127,7 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ filters }) => {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
         <p className="text-red-600 font-medium">Fehler beim Laden der Einkaufsliste</p>
-        <p className="text-red-500 text-sm mt-1">{error}</p>
+        <p className="text-red-500 text-sm mt-1">{error.message}</p>
       </div>
     );
   }
